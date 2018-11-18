@@ -1,11 +1,13 @@
 package com.example.shivam.aapat.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.shivam.aapat.R;
@@ -16,11 +18,15 @@ public class DashboardActivity extends AppCompatActivity {
     public static final String MyPREFERENCES = "MyPrefs";
 
     LinearLayout profileLayout,nearbyLayout,tipsLayout,requestLayout;
+    ImageView btnEmergency;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        btnEmergency = (ImageView) findViewById(R.id.btnEmergency);
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
@@ -36,6 +42,13 @@ public class DashboardActivity extends AppCompatActivity {
         nearbyLayout = (LinearLayout) findViewById(R.id.nearbyLayout);
         tipsLayout = (LinearLayout) findViewById(R.id.tipsLayout);
         requestLayout = (LinearLayout) findViewById(R.id.requestLayout);
+
+        btnEmergency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DashboardActivity.this, EmergencyActivity.class));
+            }
+        });
 
         profileLayout.setOnClickListener(new View.OnClickListener() {
             @Override
