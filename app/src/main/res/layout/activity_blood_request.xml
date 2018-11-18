@@ -17,13 +17,14 @@
             android:layout_height="wrap_content"
             android:hint="Enter Location"
             android:textSize="16sp"
+            android:layout_marginTop="16dp"
             android:id="@+id/tvLocation"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:layout_marginTop="8sp"
+            android:layout_marginTop="16dp"
             android:hint="Blood Group"
             android:id="@+id/etBloodGroup"/>
 
@@ -31,8 +32,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Request Blood"
+            android:layout_gravity="center"
+            android:background="@android:color/holo_red_dark"
+            android:padding="8dp"
+            android:textColor="@android:color/white"
             android:id="@+id/btnRequestBlood"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="16dp"/>
 
     </LinearLayout>
 

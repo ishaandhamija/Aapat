@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.shivam.aapat.R;
 
@@ -32,7 +33,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putString("my_userId", "-LRa4gDBjG9HjTyar1pF");
-        editor.putString("my_name", "Ishaan");
+        editor.putString("my_name", "Ishaan Dhamija");
         editor.putString("my_number", "9958421789");
         editor.putString("my_blood_group", "O+");
         editor.putBoolean("my_donation_willingness", true);
@@ -67,7 +68,7 @@ public class DashboardActivity extends AppCompatActivity {
         tipsLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(DashboardActivity.this, "Emergency Tips to be shown!", Toast.LENGTH_SHORT).show();
             }
         });
 

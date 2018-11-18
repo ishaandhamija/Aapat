@@ -7,13 +7,13 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="4dp">
 
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_common"
             android:id="@+id/ivProblemImg"/>
 
         <LinearLayout
@@ -31,7 +31,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textStyle="bold"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:textColor="#000"
                 android:id="@+id/tvProblem"/>
             <!--<TextView-->

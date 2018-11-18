@@ -1,10 +1,12 @@
 package com.example.shivam.aapat.Activities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
@@ -28,15 +30,20 @@ public class NearbuyActivity extends AppCompatActivity {
     public static final String TAG = "NearbuyActivity";
     ArrayList<Hospital> hospitals;
     RecyclerAdapter1 recyclerAdapter;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nearbuy);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportActionBar().setTitle("Nearby Hospitals");
         hospitals = new ArrayList<>();
         rvHospitals = (RecyclerView) findViewById(R.id.rvList);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Fetching nearby hospitals..");
+        progressDialog.show();
         fetchHospitals();
     }
 
@@ -63,6 +70,7 @@ public class NearbuyActivity extends AppCompatActivity {
                             rvHospitals.setLayoutManager(new LinearLayoutManager(NearbuyActivity.this));
                             recyclerAdapter = new RecyclerAdapter1(NearbuyActivity.this,hospitals);
                             rvHospitals.setAdapter(recyclerAdapter);
+                            progressDialog.dismiss();
 
 //                            Log.d("Hospitals", "onResponse: "+response.getJSONArray("results").getJSONObject(0).getString("name"));
                         } catch (JSONException e) {
@@ -117,5 +125,16 @@ public class NearbuyActivity extends AppCompatActivity {
         value = value * factor;
         long tmp = Math.round(value);
         return (double) tmp / factor;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
