@@ -25,5 +25,12 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
         this.ivProblemImg = (ImageView) itemView.findViewById(R.id.ivProblemImg);
         this.tvProblem = (TextView) itemView.findViewById(R.id.tvProblem);
         this.view = itemView;
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                EmergencyActivity.bookAmbulance();
+            }
+        });
     }
 }

@@ -32,7 +32,7 @@ public class CountAsync extends AsyncTask<Void, String, Boolean> {
     protected void onPostExecute(Boolean aBoolean) {
         super.onPostExecute(aBoolean);
         if (aBoolean.equals(true)) {
-            EmergencyActivity.bookAmbulance();
+//            EmergencyActivity.bookAmbulance();
         }
     }
 
