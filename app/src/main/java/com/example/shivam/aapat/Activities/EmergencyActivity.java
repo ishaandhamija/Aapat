@@ -31,7 +31,7 @@ public class EmergencyActivity extends AppCompatActivity {
 
     TextView btnCancel, btnBook;
 
-    CountAsync countAsync;
+    public static CountAsync countAsync;
 
     public static TextView tvSeconds;
 
@@ -86,6 +86,8 @@ public class EmergencyActivity extends AppCompatActivity {
     public void bookAmbulance() {
         Toast.makeText(this, "Request Sent", Toast.LENGTH_SHORT).show();
         finish();
+
+        countAsync.cancel(true);
 
         sendSMS("8800387550", "Emergency! Go To lat 28.6814, lng 77.3736 Team Aapat");
     }

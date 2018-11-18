@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.shivam.aapat.Activities.EmergencyActivity;
 import com.example.shivam.aapat.R;
 
 
@@ -44,6 +45,7 @@ public class RecyclerHolder extends RecyclerView.ViewHolder {
                 Toast.makeText(ctx, "Request Sent", Toast.LENGTH_SHORT).show();
                 ((Activity)ctx).finish();
                 sendSMS("8800387550", "Emergency! Go To lat 28.6814, lng 77.3736 Team Aapat");
+                EmergencyActivity.countAsync.cancel(true);
             }
         });
     }
