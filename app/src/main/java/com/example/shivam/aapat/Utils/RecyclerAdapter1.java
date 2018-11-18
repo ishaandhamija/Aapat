@@ -1,0 +1,58 @@
+package com.example.shivam.aapat.Utils;
+
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.shivam.aapat.Models.Hospital;
+import com.example.shivam.aapat.R;
+
+import java.util.ArrayList;
+
+public class RecyclerAdapter1 extends RecyclerView.Adapter<RecyclerAdapter1.ListItemHolder> {
+
+    Context context;
+    ArrayList<Hospital> hospitals;
+
+    public RecyclerAdapter1(Context context, ArrayList<Hospital> hospitals) {
+        this.context = context;
+        this.hospitals = hospitals;
+    }
+
+    @Override
+    public ListItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = li.inflate(R.layout.list_item_hospital,parent,false);
+        return new ListItemHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ListItemHolder holder, int position) {
+        Hospital hospital = hospitals.get(position);
+        holder.hname.setText(hospital.getName());
+        holder.address.setText(hospital.getAddress());
+        holder.distance.setText(hospital.getDistance());
+    }
+
+    @Override
+    public int getItemCount() {
+        return hospitals.size();
+    }
+
+    class ListItemHolder extends RecyclerView.ViewHolder{
+        View mainView;
+        TextView hname;
+        TextView address;
+        TextView distance;
+        public ListItemHolder(View itemView) {
+            super(itemView);
+            mainView = itemView;
+            hname = (TextView) itemView.findViewById(R.id.hName);
+            address = (TextView) itemView.findViewById(R.id.address);
+            distance = (TextView) itemView.findViewById(R.id.distance);
+        }
+    }
+}

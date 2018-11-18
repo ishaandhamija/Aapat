@@ -6,4 +6,34 @@
     android:layout_height="match_parent"
     tools:context="com.example.shivam.aapat.Activities.BloodRequestActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Location"
+            android:textSize="16sp"
+            android:id="@+id/tvLocation"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="8sp"
+            android:hint="Blood Group"
+            android:id="@+id/etBloodGroup"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Request Blood"
+            android:id="@+id/btnRequestBlood"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

@@ -6,4 +6,76 @@
     android:layout_height="match_parent"
     tools:context="com.example.shivam.aapat.Activities.EmergencyActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <com.jackandphantom.circularprogressbar.CircleProgressbar
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                app:cpb_roundedCorner="true"
+                app:cpb_foregroundProgressColor="#1864c2"
+                app:cpb_touchEnabled="true"
+                android:layout_gravity="center"
+                android:id="@+id/circularProgressBar"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:id="@+id/rvProblems"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.35"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Cancel"
+                android:textColor="#000"
+                android:gravity="center"
+                android:id="@+id/btnCancel"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Book Immediately"
+                android:textColor="#FFF"
+                android:gravity="center"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/btnBook"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"/>
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
