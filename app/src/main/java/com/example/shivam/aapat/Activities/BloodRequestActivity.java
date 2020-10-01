@@ -45,11 +45,11 @@ public class BloodRequestActivity extends AppCompatActivity {
     EditText etBloodGroup;
     Button btnRequestBlood;
 
-    String bloodGroup;
-    LatLng loc;
-    Double lat, lon;
-    String addr;
-    Boolean textViewFilled;
+    private String bloodGroup;
+    private LatLng loc;
+    private Double lat, lon;
+    private String addr;
+    private Boolean textViewFilled;
 
     DatabaseReference dbReference, dbReference1;
 
@@ -66,7 +66,7 @@ public class BloodRequestActivity extends AppCompatActivity {
         textViewFilled = false;
 
         dbReference = FirebaseDatabase.getInstance().getReference("BloodRequests");
-        dbReference1 = FirebaseDatabase.getInstance().getReference("Users");
+        dbReference1 = FirebaseDatabase.getInstance().getReference("Users"); 
 
         tvLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +92,7 @@ public class BloodRequestActivity extends AppCompatActivity {
                     lat = loc.latitude;
                     lon = loc.longitude;
 
+                    //logic for pushing the blood requests onto the panel
                     String key = dbReference.push().getKey();
                     dbReference.child(key).setValue(new BloodRequest(key, lat, lon, bloodGroup, addr, "7011690098"))
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -119,7 +120,6 @@ public class BloodRequestActivity extends AppCompatActivity {
 
                                 String no = user.getContactNumber();
                                 String msg = "Blood Group: " + bloodGroup + " \n Location Required: " + addr + " \n Contact Number: " + "7011690098";
-
 
                                 sendSMS(no, msg);
                             }
